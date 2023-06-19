@@ -14,12 +14,12 @@ fig = plt.figure()
 plt.ylim(-2,2)
 
 
-for i in range(25):
+for i in range(2):
     #reading a byte
     line = ser.readline()
     if line:
         string = line.decode() #convert byte data to unicode string
-        string = string.replace(" ","") #remove all spaces from string
+        #string = string.replace(" ","") #remove all spaces from string
         pk_z = float(string[-7:])   
         avg_z = float(string[40:45])
 
@@ -28,7 +28,7 @@ for i in range(25):
 
         data_pkz.append(pk_z) #append values to array "data_pkz and data_avgz"
         data_avgz.append(avg_z)
-        
+        print(string)
         plt.clf()
         plt.xlabel('Time')
         plt.ylabel('z-acceleration (g)')
